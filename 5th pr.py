@@ -21,6 +21,23 @@ def event_registration():
     print()
 
 
+def modify_registration():
+    rid = int(input("Enter Registration ID to modify: "))
+
+    for r in registration:
+        if r["id"] == rid:
+            print("Current Name: ", r["name"])
+            print("Current Email: ", r["email"])
+            print("Current Event: ", r["event"])
+
+            r["name"] = input("Enter New Name: ")
+            r["email"] = input("Enter New Email: ")
+            r["event"] = input("Enter New Event: ")
+
+            print("Registration Update Successfully\n")
+            return
+
+
 def cancel_registration():
     rid = int(input("Enter Registration ID to cancel: "))
 
@@ -47,8 +64,9 @@ def display_record():
         print("=====Event Registration System=====")
         print("1 Event Registration\n")
         print("2 Cancel Registration\n")
-        print("3 Display Record\n")
-        print("4 Exit\n")
+        print("3 Modify Registration\n")
+        print("4 Display Record\n")
+        print("5 Exit\n")
 
         choice = input("Enter Your Choice: ")
 
@@ -57,8 +75,10 @@ def display_record():
         elif choice == "2":
             cancel_registration()
         elif choice == "3":
-            display_record()
+            modify_registration()
         elif choice == "4":
+            display_record()
+        elif choice == "5":
             print("Thank You")
             break
         else:
